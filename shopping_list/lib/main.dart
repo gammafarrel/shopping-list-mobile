@@ -6,18 +6,23 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+    const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        useMaterial3: true,
-      ),
-      home: MyHomePage(),
-    );
-  }
+    @override
+    Widget build(BuildContext context) {
+        final request = context.watch<CookieRequest>();
+        return Scaffold(
+            create: (_) {
+                CookieRequest request = CookieRequest();
+                return request;
+            },
+            child: MaterialApp(
+                title: 'Flutter App',
+                theme: ThemeData(
+                    colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+                    useMaterial3: true,
+                ),
+                home: MyHomePage()),
+            ),
+    }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_list/screens/login.dart';
 import '../screens/shoplist_form.dart';
 import 'package:shopping_list/screens/list_product.dart';
 
@@ -21,7 +24,7 @@ class ShopCard extends StatelessWidget {
       color: Colors.indigo,
       child: InkWell(
         // Area responsive terhadap sentuhan
-      onTap: () async{
+      onTap: () async {
         // Memunculkan SnackBar ketika diklik
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
